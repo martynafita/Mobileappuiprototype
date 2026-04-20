@@ -1,10 +1,12 @@
 import { Heart, Home, Search, User, Settings, Moon, Sun } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useTheme } from "../context/ThemeContext";
 
 export function MainFeedScreen() {
   const { isDark, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const [likes, setLikes] = useState<{ [key: number]: boolean }>({});
 
   const contentCards = [
@@ -137,6 +139,7 @@ export function MainFeedScreen() {
           <button
             className="flex flex-col items-center gap-1"
             aria-label="Profile"
+            onClick={() => navigate("/personalize")}
           >
             <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
               isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
