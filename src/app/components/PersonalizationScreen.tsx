@@ -1,4 +1,4 @@
-import { Dumbbell, Gamepad2, Music, Shirt, Smartphone, Palette, Camera, Book, Plane, Coffee, Film, MoreHorizontal } from "lucide-react";
+import { Dumbbell, Gamepad2, Music, Shirt, Smartphone, Palette, Camera, Book, Plane, Coffee, Film, MoreHorizontal, X } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useTheme } from "../context/ThemeContext";
@@ -37,7 +37,18 @@ export function PersonalizationScreen() {
     <div className={`h-screen flex flex-col max-w-md mx-auto transition-colors ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
       {/* Top Section */}
       <div className="px-6 pt-12 pb-8">
-        <h1 className={`text-3xl mb-3 ${isDark ? 'text-white' : 'text-black'}`}>Customize your experience</h1>
+        <div className="flex items-start justify-between mb-3">
+          <h1 className={`text-3xl flex-1 ${isDark ? 'text-white' : 'text-black'}`}>Customize your experience</h1>
+          <button
+            onClick={() => navigate("/")}
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+              isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
+            }`}
+            aria-label="Close"
+          >
+            <X className={`w-6 h-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`} />
+          </button>
+        </div>
         <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
           Select topics you're interested in to personalize your feed
         </p>
